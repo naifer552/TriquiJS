@@ -19,7 +19,8 @@ function listening() {
     for(let i = 0; i<clickScreen.length; i++){
         clickScreen[i].addEventListener("click",function () {
             valueId = this.id;
-            valueId = parseInt(valueId)
+            valueId = parseInt(valueId);
+            player = 'el humano';
             if (arrOriginal.includes(valueId)) {
                 humanPlayer();
             }else if(arrOriginal.length>0){
@@ -41,7 +42,6 @@ function humanPlayer() {
     console.log(arrOriginal);
     if(arrHum.length>2){
         validar = arrHum;
-        player = 'el humano';
         validate();
     }
     if (arrOriginal.length>0) {
@@ -79,12 +79,11 @@ function validate() {
                 if (coincidentes>2) {
                     setTimeout(() => {
                         alert(`Gano ${player}`);
-
                     }, 350);
                     arrOriginal = [];
                     reset();
                 }
-                if (coincidentes<2 && arrOriginal ==[]) {
+                if (coincidentes<2 && (arrOriginal.length<1)) {
                     reset();
                     
                 }
